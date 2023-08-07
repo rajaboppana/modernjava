@@ -12,7 +12,7 @@ public class ConsumerExample {
 
         //Loop through all the instructors and print their names and courses
         System.out.println("----------------------");
-        Consumer<Instructor> c2 = (s1) -> System.out.println(s1.cources);
+        Consumer<Instructor> c2 = (s1) -> print(s1.cources);
         instructors.forEach(c1.andThen(c2));
 
         //Loop through all the instructors and print out their name if the years of
@@ -34,4 +34,9 @@ public class ConsumerExample {
         });
 
     }
+
+    public static void print(List<String> course){
+        System.out.println(course);
+    }
+
 }

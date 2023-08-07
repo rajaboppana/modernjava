@@ -17,6 +17,12 @@ public class Instructor {
         this.cources = cources;
     }
 
+    public Instructor(InstructorBuilder instructorBuilder){
+        this.name = instructorBuilder.name;
+        this.title = instructorBuilder.title;
+        this.yearsOfExperience = instructorBuilder.yearsOfExperience;
+    }
+
     public String getName() {
         return name;
     }
@@ -75,5 +81,28 @@ public class Instructor {
                 ", onlineCources=" + onlineCources +
                 ", cources=" + cources +
                 '}';
+    }
+
+    public static class InstructorBuilder{
+
+        public final String name;
+
+        public final int yearsOfExperience;
+
+        public String title;
+
+        public InstructorBuilder(String name, int yearsOfExperience) {
+            this.name = name;
+            this.yearsOfExperience = yearsOfExperience;
+        }
+
+        public InstructorBuilder setTitle(String title){
+            this.title = title;
+            return this;
+        }
+
+        public Instructor build(){
+            return new Instructor(this);
+        }
     }
 }
